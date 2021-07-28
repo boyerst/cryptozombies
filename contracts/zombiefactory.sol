@@ -30,6 +30,7 @@ contract ZombieFactory {
   }
 
   function createRandomZombie(string memory _name) public {
+    //use require to prevent multiple random zombie generations
     require(ownerZombieCount[msg.sender] == 0);
     uint randDna = _generateRandomDna(_name);
     _createZombie(_name, randDna);
